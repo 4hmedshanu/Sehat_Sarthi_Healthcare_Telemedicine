@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Information Form</title>
+    <link rel="stylesheet" href="/css/doctorformcss.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor Information Form</h1>
+        <form id="doctorForm">
+            <div class="form-layout">
+                <div class="left-column">
+                    <div class="form-group">
+                        <label for="doctor_id">Doctor ID</label>
+                        <input type="text" id="doctor_id" name="doctor_id" required>
+                        <div class="error" id="doctor_id_error">Please enter a valid Doctor ID</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">Specialization</label>
+                        <select id="specialization" name="specialization" required>
+                            <option value="">Select Specialization</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Ophthalmology">Ophthalmology</option>
+                            <option value="Psychiatry">Psychiatry</option>
+                            <option value="Surgery">Surgery</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="error" id="specialization_error">Please select a specialization</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qualification">Qualification</label>
+                        <input type="text" id="qualification" name="qualification" placeholder="e.g., MD, MBBS, PhD" required>
+                        <div class="error" id="qualification_error">Please enter a qualification</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience_years">Years of Experience</label>
+                        <input type="number" id="experience_years" name="experience_years" min="0" max="50" required>
+                        <div class="error" id="experience_years_error">Please enter a valid number (0-50)</div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <div class="form-group">
+                        <label for="license_number">Medical License Number</label>
+                        <input type="text" id="license_number" name="license_number" required>
+                        <div class="error" id="license_number_error">Please enter a valid license number</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clinic_address">Clinic Address</label>
+                        <textarea id="clinic_address" name="clinic_address" required></textarea>
+                        <div class="error" id="clinic_address_error">Please enter a clinic address</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Availability Status</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="available" name="availability_status" value="Available" required>
+                                <label for="available">Available</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="unavailable" name="availability_status" value="Unavailable">
+                                <label for="unavailable">Unavailable</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="on_leave" name="availability_status" value="On Leave">
+                                <label for="on_leave">On Leave</label>
+                            </div>
+                        </div>
+                        <div class="error" id="availability_status_error">Please select an availability status</div>
+                    </div>
+                </div>
+
+                <!-- Document Upload Section -->
+                <div class="full-width">
+                    <div class="section-title">Document Uploads</div>
+                    
+                    <div class="form-layout">
+                        <div class="left-column">
+                            <div class="form-group">
+                                <label for="experience_docs">Experience Related Documents</label>
+                                <div class="file-upload">
+                                    <div class="file-upload-btn">
+                                        <span>Choose Experience Documents</span>
+                                    </div>
+                                    <input type="file" id="experience_docs" name="experience_docs" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                                </div>
+                                <div class="file-requirements">Accepted formats: PDF, DOC, DOCX, JPG, JPEG, PNG (Max 5 files, 10MB each)</div>
+                                <div class="file-name" id="experience_docs_name">No files selected</div>
+                                <div class="error" id="experience_docs_error">Please upload at least one experience document</div>
+                            </div>
+                        </div>
+                        
+                        <div class="right-column">
+                            <div class="form-group">
+                                <label for="license_cert">License Certificate</label>
+                                <div class="file-upload">
+                                    <div class="file-upload-btn">
+                                        <span>Choose License Certificate</span>
+                                    </div>
+                                    <input type="file" id="license_cert" name="license_cert" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                                <div class="file-requirements">Accepted formats: PDF, JPG, JPEG, PNG (Max 10MB)</div>
+                                <div class="file-name" id="license_cert_name">No file selected</div>
+                                <div class="error" id="license_cert_error">Please upload your license certificate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="qualification_docs">Qualification Documents</label>
+                        <div class="file-upload">
+                            <div class="file-upload-btn">
+                                <span>Choose Qualification Documents</span>
+                            </div>
+                            <input type="file" id="qualification_docs" name="qualification_docs" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple required>
+                        </div>
+                        <div class="file-requirements">Accepted formats: PDF, DOC, DOCX, JPG, JPEG, PNG (Max 5 files, 10MB each)</div>
+                        <div class="file-name" id="qualification_docs_name">No files selected</div>
+                        <div class="error" id="qualification_docs_error">Please upload at least one qualification document</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Submit Information</button>
+            </div>
+        </form>
+        
+        <div class="success-message" id="successMessage">
+            Doctor information submitted successfully!
+        </div>
+    </div>
+
+    <script>
+        // File input display functionality
+        document.getElementById('experience_docs').addEventListener('change', function() {
+            const fileName = this.files.length > 0 
+                ? `${this.files.length} file(s) selected` 
+                : 'No files selected';
+            document.getElementById('experience_docs_name').textContent = fileName;
+        });
+
+        document.getElementById('license_cert').addEventListener('change', function() {
+            const fileName = this.files.length > 0 
+                ? this.files[0].name 
+                : 'No file selected';
+            document.getElementById('license_cert_name').textContent = fileName;
+        });
+
+        document.getElementById('qualification_docs').addEventListener('change', function() {
+            const fileName = this.files.length > 0 
+                ? `${this.files.length} file(s) selected` 
+                : 'No files selected';
+            document.getElementById('qualification_docs_name').textContent = fileName;
+        });
+
+        // Form validation
+        document.getElementById('doctorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Reset error messages
+            const errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(element => {
+                element.style.display = 'none';
+            });
+
+            // Validate Doctor ID
+            const doctorId = document.getElementById('doctor_id').value.trim();
+            if (doctorId === '') {
+                document.getElementById('doctor_id_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Specialization
+            const specialization = document.getElementById('specialization').value;
+            if (specialization === '') {
+                document.getElementById('specialization_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Qualification
+            const qualification = document.getElementById('qualification').value.trim();
+            if (qualification === '') {
+                document.getElementById('qualification_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Experience Years
+            const experienceYears = document.getElementById('experience_years').value;
+            if (experienceYears === '' || experienceYears < 0 || experienceYears > 50) {
+                document.getElementById('experience_years_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate License Number
+            const licenseNumber = document.getElementById('license_number').value.trim();
+            if (licenseNumber === '') {
+                document.getElementById('license_number_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Clinic Address
+            const clinicAddress = document.getElementById('clinic_address').value.trim();
+            if (clinicAddress === '') {
+                document.getElementById('clinic_address_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Availability Status
+            const availabilityStatus = document.querySelector('input[name="availability_status"]:checked');
+            if (!availabilityStatus) {
+                document.getElementById('availability_status_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // Validate Document Uploads
+            const licenseCert = document.getElementById('license_cert').files;
+            if (licenseCert.length === 0) {
+                document.getElementById('license_cert_error').style.display = 'block';
+                isValid = false;
+            }
+
+            const qualificationDocs = document.getElementById('qualification_docs').files;
+            if (qualificationDocs.length === 0) {
+                document.getElementById('qualification_docs_error').style.display = 'block';
+                isValid = false;
+            }
+
+            // If form is valid, show success message
+            if (isValid) {
+                document.getElementById('successMessage').style.display = 'block';
+                // In a real application, you would submit the form data to a server here
+                // For this example, we'll just reset the form after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('doctorForm').reset();
+                    document.getElementById('successMessage').style.display = 'none';
+                    // Reset file name displays
+                    document.getElementById('experience_docs_name').textContent = 'No files selected';
+                    document.getElementById('license_cert_name').textContent = 'No file selected';
+                    document.getElementById('qualification_docs_name').textContent = 'No files selected';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
